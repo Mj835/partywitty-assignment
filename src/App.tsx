@@ -18,7 +18,7 @@ function RouterContent() {
 
   useEffect(() => {
     const syncSidebarForViewport = () => {
-      const isDesktop = window.matchMedia('(min-width: 1024px)').matches
+      const isDesktop = window.matchMedia('(min-width: 1280px)').matches
       setSidebarCollapsed(!(isDiscoverRoute && isDesktop))
     }
 

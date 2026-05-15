@@ -27,7 +27,7 @@ export function DashboardLayout({
           collapsed={sidebarCollapsed}
           onToggle={onToggleSidebar}
         />
-        <div className="min-w-0 flex-1 lg:pl-(--sidebar-width) transition-[padding] duration-500 ease-sidebar-slide">
+        <div className="min-w-0 flex-1 pt-[70px] lg:pt-0 lg:pl-(--sidebar-width) transition-[padding] duration-500 ease-sidebar-slide">
           <Outlet />
         </div>
       </div>

@@ -18,9 +18,9 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
 
   return (
     <aside
-      className={`z-40 flex shrink-0 flex-col justify-between bg-[#f8f8f8]/95 transition-[width,padding,height] duration-500 ease-sidebar-slide shadow-xs lg:bg-[rgba(241,241,241,0.28)]  ${collapsed
-        ? 'relative h-[70px] w-full lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-[105px] lg:pt-[30px]'
-        : 'fixed inset-0 h-screen w-full pt-[30px] lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-[310px]'
+      className={`fixed left-0 top-0 z-40 flex shrink-0 flex-col justify-between bg-[#f8f8f8]/95 transition-[width,padding,height] duration-500 ease-sidebar-slide shadow-xs lg:bg-[rgba(241,241,241,0.28)] ${collapsed
+        ? 'h-[70px] w-full lg:h-screen lg:w-[105px] lg:pt-[30px]'
+        : 'h-screen w-full pt-[30px] lg:w-[310px]'
         }`}
     >
       <div className={`flex min-h-0 flex-col px-4 lg:px-5 ${collapsed ? 'h-full gap-5 lg:h-auto' : 'gap-5'}`}>
