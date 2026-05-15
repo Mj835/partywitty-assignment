@@ -84,7 +84,7 @@ function SelectedPlanSummary() {
 function EventSearch() {
   return (
     <label
-      className="flex h-12 w-full max-w-[290px] items-center gap-3 rounded-full bg-white/30 px-5 text-[13px] text-brand-text focus-within:ring-2 focus-within:ring-brand-purple"
+      className="flex h-12 w-full max-w-[290px] items-center gap-3 rounded-full bg-white px-5 text-[13px] text-brand-text focus-within:ring-2 focus-within:ring-brand-purple"
       htmlFor="event-search"
     >
       <Icon name="search" className="size-5 shrink-0" />

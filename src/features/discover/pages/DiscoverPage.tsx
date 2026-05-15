@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { DiscoveryCard } from '@/features/discover/components/DiscoveryCard'
 import { VerificationPanel } from '@/features/discover/components/VerificationPanel'
 import { GradientButton } from '@/shared/ui/GradientButton'
-import { selectedProfile } from '@/features/discover/data/discover.mock'
+import { discoverProfiles } from '@/features/discover/data/discover.mock'
 
 export function DiscoverPage() {
   const navigate = useNavigate()
@@ -16,7 +16,7 @@ export function DiscoverPage() {
         >
           Explore Feed
         </GradientButton>
-        <DiscoveryCard person={selectedProfile} />
+        <DiscoveryCard profiles={discoverProfiles} />
       </div>
       <VerificationPanel />
     </section>
