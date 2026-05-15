@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { DiscoverPage } from './features/discover/pages/DiscoverPage'
 import { PartyPackagesPage } from './features/party-packages/pages/PartyPackagesPage'
 import { BuyDrinksPage } from './features/buy-drinks/pages/BuyDrinksPage'
@@ -10,6 +10,7 @@ import { useSidebar } from './shared/hooks/useSidebar'
 function RouterContent() {
   const { collapsed, toggle, setSidebarCollapsed } = useSidebar(true)
   const location = useLocation()
+  const isDiscoverRoute = location.pathname === '/' || location.pathname === '/discover'
   
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -18,18 +19,18 @@ function RouterContent() {
   useEffect(() => {
     const syncSidebarForViewport = () => {
       const isDesktop = window.matchMedia('(min-width: 1024px)').matches
-      setSidebarCollapsed(!(location.pathname === '/discover' && isDesktop))
+      setSidebarCollapsed(!(isDiscoverRoute && isDesktop))
     }
 
     syncSidebarForViewport()
     window.addEventListener('resize', syncSidebarForViewport)
     return () => window.removeEventListener('resize', syncSidebarForViewport)
-  }, [location.pathname, setSidebarCollapsed])
+  }, [isDiscoverRoute, setSidebarCollapsed])
 
   return (
     <Routes>
       <Route element={<DashboardLayout sidebarCollapsed={collapsed} onToggleSidebar={toggle} />}>
-        <Route path="/" element={<Navigate to="/party-packages" replace />} />
+        <Route path="/" element={<DiscoverPage />} />
         <Route path="/discover" element={<DiscoverPage />} />
         <Route path="/party-packages" element={<PartyPackagesPage />} />
         <Route path="/buy-drinks" element={<BuyDrinksPage />} />
